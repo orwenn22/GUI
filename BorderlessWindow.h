@@ -3,6 +3,7 @@
 
 #include "Window.h"
 
+//This is a Window without a title bar.
 class BorderlessWindow : public Window {
     public:
     BorderlessWindow();

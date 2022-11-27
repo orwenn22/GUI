@@ -3,6 +3,8 @@
 
 #include "Widget.h"
 
+//Same as IntFielt but for "unsigned char" variables.
+//Maybe there is a better way to handle this ?
 class U8Field : public Widget {
     public:
     U8Field(int x, int y, int w, unsigned char* variableptr);

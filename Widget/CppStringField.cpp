@@ -27,7 +27,7 @@ void CppStringField::Update() {
     }
 
     if(m_isselected) {
-        for(int i = KEY_A; i < KEY_Z; i++) {
+        for(int i = KEY_A; i < KEY_Z+1; i++) {
             if(IsKeyPressed(i)) {
                 if(IsKeyDown(KEY_LEFT_SHIFT)) {
                     (*m_variableptr) += (char) i;
@@ -36,6 +36,12 @@ void CppStringField::Update() {
                     (*m_variableptr) += (char) (i+32);
                 }
                 
+            }
+        }
+
+        for(int i = KEY_ZERO; i < KEY_NINE+1; i++) {
+            if(IsKeyPressed(i)) {
+                (*m_variableptr) += (char) i;
             }
         }
 

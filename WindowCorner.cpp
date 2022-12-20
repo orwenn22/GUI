@@ -14,6 +14,9 @@ WindowCorner::WindowCorner(int minwidth, int minheight) {
 }
 
 void WindowCorner::Update() {
+    m_x = g_winwidth - 20;
+    m_y = g_winheight - 20;
+
     if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
         if(g_mouse->m_x > m_x && g_mouse->m_y > m_y) {
             m_followmouse = true;
@@ -31,6 +34,7 @@ void WindowCorner::Update() {
         m_x = g_mouse->m_x - m_mouseoffsetx;
         m_y = g_mouse->m_y - m_mouseoffsetx;
 
+        //Take the minimum size into account
         if(m_x < m_minwidth-20) {
             m_x = m_minwidth-20;
         }

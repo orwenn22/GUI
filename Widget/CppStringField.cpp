@@ -27,6 +27,7 @@ void CppStringField::Update() {
     }
 
     if(m_isselected) {
+        //Characters with uppercases
         for(int i = KEY_A; i < KEY_Z+1; i++) {
             if(IsKeyPressed(i)) {
                 if(IsKeyDown(KEY_LEFT_SHIFT)) {
@@ -39,7 +40,8 @@ void CppStringField::Update() {
             }
         }
 
-        for(int i = KEY_ZERO; i < KEY_NINE+1; i++) {
+        //Characters without uppercases
+        for(int i = KEY_APOSTROPHE; i < KEY_EQUAL+1; i++) {
             if(IsKeyPressed(i)) {
                 (*m_variableptr) += (char) i;
             }

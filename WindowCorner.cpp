@@ -2,6 +2,7 @@
 
 #include "MainWindow.h"
 #include "Mouse/MouseObject.h"
+#include "Themes/ColorTheme.h"
 
 WindowCorner::WindowCorner(int minwidth, int minheight) {
     m_x = g_winwidth - 20;
@@ -55,13 +56,13 @@ void WindowCorner::Draw() {
         (Vector2) {(float)(m_x)   , (float)(m_y+20 -1)},
         (Vector2) {(float)(m_x+20), (float)(m_y+20 -1)},
         (Vector2) {(float)(m_x+20), (float)(m_y    -1)},
-        BLACK
+        g_colortheme.CornerColor
     );
 
     DrawTriangleLines(
         (Vector2) {(float)(m_x)   , (float)(m_y+20 -1)},
         (Vector2) {(float)(m_x+20), (float)(m_y+20 -1)},
         (Vector2) {(float)(m_x+20), (float)(m_y    -1)},
-        WHITE
+        g_colortheme.OutlineColor
     );
 }

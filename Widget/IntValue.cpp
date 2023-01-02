@@ -1,4 +1,5 @@
 #include "IntValue.h"
+#include "../Themes/ColorTheme.h"
 
 #include <raylib.h>
 
@@ -7,5 +8,5 @@ IntValue::IntValue(int x, int y, int* value) : Widget(x, y, 0, 0) {
 }
 
 void IntValue::Draw() {
-    DrawText(TextFormat("%i", *m_value), m_x, m_y, 10, WHITE);
+    DrawText(TextFormat("%i", *m_value), m_x, m_y, 10, g_colortheme.TextColor);
 }

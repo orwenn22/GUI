@@ -1,6 +1,7 @@
 #include "ElementList.h"
 
 #include "../Mouse/MouseObject.h"
+#include "../Themes/ColorTheme.h"
 
 ElementList::ElementList(int x, int y, int w, int h) : Widget(x, y, w, h) {
     m_firstelementindex = 0;
@@ -64,8 +65,8 @@ void ElementList::Update() {
 }
 
 void ElementList::Draw() {
-    DrawRectangle(m_x, m_y, m_width, m_height, BLACK);
-    DrawRectangleLines(m_x, m_y, m_width, m_height, WHITE);
+    DrawRectangle(m_x, m_y, m_width, m_height, g_colortheme.ListBackground);
+    DrawRectangleLines(m_x, m_y, m_width, m_height, g_colortheme.OutlineColor);
 
 
     int painterx = m_x;
@@ -73,7 +74,7 @@ void ElementList::Draw() {
 
     for(int i = m_firstelementindex; (i < GetElementCount()) && (i < m_firstelementindex + (m_height/m_elementheight)); i++) {
         DrawElement(painterx, paintery, i);
-        DrawLine(m_x, paintery+m_elementheight-1, m_x+m_width-6, paintery+m_elementheight-1, WHITE);
+        DrawLine(m_x, paintery+m_elementheight-1, m_x+m_width-6, paintery+m_elementheight-1, g_colortheme.OutlineColor);
         
         //DrawLine(m_x, paintery+29, m_x+m_width-6, paintery+29, WHITE);
         paintery += m_elementheight;
@@ -83,12 +84,12 @@ void ElementList::Draw() {
         //outline arount selected element
         if(GetSelectedElement() >= m_firstelementindex && GetSelectedElement() < m_firstelementindex+(m_height/m_elementheight)) {
             int yorigin = (GetSelectedElement() - m_firstelementindex) * 30 + 2;
-            DrawRectangleLines(m_x+2, m_y+yorigin, m_width-10, 25, RED);
+            DrawRectangleLines(m_x+2, m_y+yorigin, m_width-10, 25, g_colortheme.ListSelection);
         }
     }
 
     //vertical line
-    DrawLine(m_x+m_width-6, m_y, m_x+m_width-6, m_y+m_height, WHITE);
+    DrawLine(m_x+m_width-6, m_y, m_x+m_width-6, m_y+m_height, g_colortheme.OutlineColor);
 
     //scrollbar
     if(GetElementCount() > 0) {
@@ -102,7 +103,7 @@ void ElementList::Draw() {
             scrollbarheight = (m_y+m_height-2) - scrollbary;    //don't cross the bottom of the scrollbar area
         }
 
-        DrawRectangle(scrollbarx, scrollbary, 3, scrollbarheight, WHITE);
+        DrawRectangle(scrollbarx, scrollbary, 3, scrollbarheight, g_colortheme.OutlineColor);   //TODO (maybe) : dedicated color for scrollbar ?
     }
 }
 

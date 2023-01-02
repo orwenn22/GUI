@@ -3,6 +3,7 @@
 #include "MainWindow.h"
 #include "Mouse/MouseObject.h"
 #include "TabsHandler.h"
+#include "Themes/ColorTheme.h"
 
 #include <raylib.h>
 
@@ -76,23 +77,25 @@ int TabBar::GetEndX() {
 
 
 void TabBar::Draw() {
-    DrawRectangle(0, 0, g_winwidth, 20, BLACK);
-    DrawLine(0, 20, g_winwidth, 20, WHITE);
+    DrawRectangle(0, 0, g_winwidth, 20, g_colortheme.TabBarColor);
+    DrawLine(0, 20, g_winwidth, 20, g_colortheme.OutlineColor);
 
     int selectedtab = GetSelectedTab();
 
     //Selected tabs
-    DrawRectangle(selectedtab * m_tabwidth + m_originx, 0, m_tabwidth, 21, {25, 25, 25, 255});
-    DrawLine(selectedtab * m_tabwidth + m_originx, 0, (selectedtab+1) * m_tabwidth + m_originx, 0, WHITE);
+    DrawRectangle(selectedtab * m_tabwidth + m_originx, 0, m_tabwidth, 21, g_colortheme.SelectedTab);
+    DrawLine(selectedtab * m_tabwidth + m_originx, 0, (selectedtab+1) * m_tabwidth + m_originx, 0, g_colortheme.OutlineColor);
 
     //lines / separators + tab titles
     int i;
     for(i = 0; i < GetTabCount(); i++) {
-        DrawText(m_tabshandler->GetTabName(i).c_str(), m_originx + (i)*m_tabwidth + 2, 5, 10, WHITE);
+        DrawText(m_tabshandler->GetTabName(i).c_str(), m_originx + (i)*m_tabwidth + 2, 5, 10, g_colortheme.TextColor);
 
-        DrawLine(m_originx + (i+1)*m_tabwidth, 0, m_originx+ (i+1)*m_tabwidth, 20, WHITE);
+        DrawLine(m_originx + (i+1)*m_tabwidth, 0, m_originx+ (i+1)*m_tabwidth, 20, g_colortheme.OutlineColor);
     }
-    DrawLine(m_originx + i*m_tabwidth + 20, 0, m_originx + i*m_tabwidth + 20, 20, WHITE);
+
+    //Last line for the new tab button
+    DrawLine(m_originx + i*m_tabwidth + 20, 0, m_originx + i*m_tabwidth + 20, 20, g_colortheme.OutlineColor);
 }
 
 

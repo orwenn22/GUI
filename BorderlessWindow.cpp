@@ -2,6 +2,7 @@
 
 #include "MainWindow.h"
 #include "Mouse/MouseObject.h"
+#include "Themes/ColorTheme.h"
 #include "Widget/WidgetManager.h"
 #include "WindowManager.h"
 
@@ -44,9 +45,9 @@ bool BorderlessWindow::PreUpdate() {
 }
 
 void BorderlessWindow::Draw() {
-    DrawRectangle(m_x, m_y, m_width, m_height, BLACK);
+    DrawRectangle(m_x, m_y, m_width, m_height, g_colortheme.WindowBackground);
 
     m_widgetmanager->Draw();
 
-    DrawRectangleLines(m_x, m_y, m_width, m_height, WHITE);
+    DrawRectangleLines(m_x, m_y, m_width, m_height, g_colortheme.OutlineColor);
 }

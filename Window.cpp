@@ -2,6 +2,7 @@
 
 #include "MainWindow.h"
 #include "Mouse/MouseObject.h"
+#include "Themes/ColorTheme.h"
 #include "Widget/IntField.h"
 #include "Widget/WidgetManager.h"
 #include "Widget/Widget.h"
@@ -97,16 +98,16 @@ void Window::PostUpdate() {
 }
 
 void Window::Draw() {
-    DrawRectangle(m_x, m_y, m_width, m_height, BLACK);
+    DrawRectangle(m_x, m_y, m_width, m_height, g_colortheme.WindowBackground);
 
     m_widgetmanager->Draw();
 
     DrawRectangle(m_x, m_y, m_width, 12, m_titlebarcolor);
 
-    DrawRectangle(m_x + m_width - 12, m_y, 12, 12, RED);
-    DrawRectangleLines(m_x + m_width - 12, m_y, 12, 12, WHITE);
+    DrawRectangle(m_x + m_width - 12, m_y, 12, 12, g_colortheme.WindowClose);
+    DrawRectangleLines(m_x + m_width - 12, m_y, 12, 12, g_colortheme.OutlineColor);
 
-    DrawRectangleLines(m_x, m_y, m_width, m_height, WHITE);
+    DrawRectangleLines(m_x, m_y, m_width, m_height, g_colortheme.OutlineColor);
     DrawText(m_titlebartext.c_str(), m_x + 2, m_y + 2, 10, m_titlebartextcolor);
 }
 

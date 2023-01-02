@@ -45,9 +45,9 @@ bool BorderlessWindow::PreUpdate() {
 }
 
 void BorderlessWindow::Draw() {
-    DrawRectangle(m_x, m_y, m_width, m_height, g_colortheme.WindowBackground);
+    DrawRectangle(m_x, m_y, m_width, m_height, g_colortheme->WindowBackground);
 
     m_widgetmanager->Draw();
 
-    DrawRectangleLines(m_x, m_y, m_width, m_height, g_colortheme.OutlineColor);
+    DrawRectangleLines(m_x, m_y, m_width, m_height, g_colortheme->OutlineColor);
 }

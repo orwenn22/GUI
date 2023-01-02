@@ -27,9 +27,9 @@ void Button::Update() {
 }
 
 void Button::Draw() {
-    DrawRectangle(m_x, m_y, m_width, m_height, g_colortheme.ButtonBackground);
-    DrawRectangleLines(m_x, m_y, m_width, m_height, g_colortheme.OutlineColor);
-    DrawText(m_text.c_str(), m_x + 2, m_y + 2, 10, g_colortheme.TextColor);
+    DrawRectangle(m_x, m_y, m_width, m_height, g_colortheme->ButtonBackground);
+    DrawRectangleLines(m_x, m_y, m_width, m_height, g_colortheme->OutlineColor);
+    DrawText(m_text.c_str(), m_x + 2, m_y + 2, 10, g_colortheme->TextColor);
 }
 
 void Button::SetAction(ButtonAction action) {

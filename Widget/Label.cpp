@@ -11,7 +11,7 @@ Label::Label(int x, int y, std::string text) : Widget(x, y, 0, 0) {
 }
 
 void Label::Draw() {
-    DrawText(m_text.c_str(), m_x, m_y, 10, g_colortheme.TextColor);
+    DrawText(m_text.c_str(), m_x, m_y, 10, g_colortheme->TextColor);
 }
 
 void Label::SetText(std::string newtext) {

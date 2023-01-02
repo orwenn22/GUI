@@ -8,5 +8,5 @@ IntValue::IntValue(int x, int y, int* value) : Widget(x, y, 0, 0) {
 }
 
 void IntValue::Draw() {
-    DrawText(TextFormat("%i", *m_value), m_x, m_y, 10, g_colortheme.TextColor);
+    DrawText(TextFormat("%i", *m_value), m_x, m_y, 10, g_colortheme->TextColor);
 }

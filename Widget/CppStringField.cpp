@@ -61,12 +61,12 @@ void CppStringField::Update() {
 }
 
 void CppStringField::Draw() {
-    DrawRectangle(m_x, m_y, m_width, m_height, g_colortheme.FieldBackground);
-    DrawText(m_variableptr->c_str(), m_x + 2, m_y + 2, 10, g_colortheme.TextColor);
+    DrawRectangle(m_x, m_y, m_width, m_height, g_colortheme->FieldBackground);
+    DrawText(m_variableptr->c_str(), m_x + 2, m_y + 2, 10, g_colortheme->TextColor);
 
     if(m_isselected) {
-        DrawRectangleLines(m_x, m_y, m_width, m_height, g_colortheme.FieldSelected);
+        DrawRectangleLines(m_x, m_y, m_width, m_height, g_colortheme->FieldSelected);
     } else {
-        DrawRectangleLines(m_x, m_y, m_width, m_height, g_colortheme.OutlineColor);
+        DrawRectangleLines(m_x, m_y, m_width, m_height, g_colortheme->OutlineColor);
     }
 }

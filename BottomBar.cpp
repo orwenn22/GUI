@@ -18,10 +18,10 @@ void BottomBar::Update() {
 }
 
 void BottomBar::Draw() {
-    DrawRectangle(0, m_y, g_winwidth, 15, g_colortheme.BottomBarColor);
-    DrawLine(0, m_y, g_winwidth, m_y, g_colortheme.OutlineColor);
+    DrawRectangle(0, m_y, g_winwidth, 15, g_colortheme->BottomBarColor);
+    DrawLine(0, m_y, g_winwidth, m_y, g_colortheme->OutlineColor);
 
-    DrawText(m_text.c_str(), 3, m_y+3, 10, g_colortheme.TextColor);
+    DrawText(m_text.c_str(), 3, m_y+3, 10, g_colortheme->TextColor);
 }
 
 void BottomBar::TextAppend(std::string strtoappend) {

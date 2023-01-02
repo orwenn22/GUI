@@ -79,14 +79,14 @@ void IntField::Update() {
 }
 
 void IntField::Draw() {
-    DrawRectangle(m_x, m_y, m_width, m_height, g_colortheme.FieldBackground);
+    DrawRectangle(m_x, m_y, m_width, m_height, g_colortheme->FieldBackground);
     //DrawText(TextFormat("%i", m_tempvariable), m_x + 2, m_y + 2, 10, WHITE);
     if(m_isselected) {
-        DrawRectangleLines(m_x, m_y, m_width, m_height, g_colortheme.FieldSelected);
-        DrawText(TextFormat("%i", m_tempvariable), m_x + 2, m_y + 2, 10, g_colortheme.TextColor);
+        DrawRectangleLines(m_x, m_y, m_width, m_height, g_colortheme->FieldSelected);
+        DrawText(TextFormat("%i", m_tempvariable), m_x + 2, m_y + 2, 10, g_colortheme->TextColor);
     } else {
-        DrawRectangleLines(m_x, m_y, m_width, m_height, g_colortheme.OutlineColor);
-        DrawText(TextFormat("%i", *m_varriableptr), m_x + 2, m_y + 2, 10, g_colortheme.TextColor);
+        DrawRectangleLines(m_x, m_y, m_width, m_height, g_colortheme->OutlineColor);
+        DrawText(TextFormat("%i", *m_varriableptr), m_x + 2, m_y + 2, 10, g_colortheme->TextColor);
     }
 }
 

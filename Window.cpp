@@ -98,16 +98,16 @@ void Window::PostUpdate() {
 }
 
 void Window::Draw() {
-    DrawRectangle(m_x, m_y, m_width, m_height, g_colortheme.WindowBackground);
+    DrawRectangle(m_x, m_y, m_width, m_height, g_colortheme->WindowBackground);
 
     m_widgetmanager->Draw();
 
     DrawRectangle(m_x, m_y, m_width, 12, m_titlebarcolor);
 
-    DrawRectangle(m_x + m_width - 12, m_y, 12, 12, g_colortheme.WindowClose);
-    DrawRectangleLines(m_x + m_width - 12, m_y, 12, 12, g_colortheme.OutlineColor);
+    DrawRectangle(m_x + m_width - 12, m_y, 12, 12, g_colortheme->WindowClose);
+    DrawRectangleLines(m_x + m_width - 12, m_y, 12, 12, g_colortheme->OutlineColor);
 
-    DrawRectangleLines(m_x, m_y, m_width, m_height, g_colortheme.OutlineColor);
+    DrawRectangleLines(m_x, m_y, m_width, m_height, g_colortheme->OutlineColor);
     DrawText(m_titlebartext.c_str(), m_x + 2, m_y + 2, 10, m_titlebartextcolor);
 }
 

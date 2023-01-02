@@ -56,13 +56,13 @@ void WindowCorner::Draw() {
         (Vector2) {(float)(m_x)   , (float)(m_y+20 -1)},
         (Vector2) {(float)(m_x+20), (float)(m_y+20 -1)},
         (Vector2) {(float)(m_x+20), (float)(m_y    -1)},
-        g_colortheme.CornerColor
+        g_colortheme->CornerColor
     );
 
     DrawTriangleLines(
         (Vector2) {(float)(m_x)   , (float)(m_y+20 -1)},
         (Vector2) {(float)(m_x+20), (float)(m_y+20 -1)},
         (Vector2) {(float)(m_x+20), (float)(m_y    -1)},
-        g_colortheme.OutlineColor
+        g_colortheme->OutlineColor
     );
 }

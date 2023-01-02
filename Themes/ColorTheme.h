@@ -29,9 +29,9 @@ struct ColorTheme {
     Color ButtonBackground;
 };
 
-extern ColorTheme g_colortheme;
+extern ColorTheme* g_colortheme;
 
-extern const ColorTheme DefaultDarkTheme;
-extern const ColorTheme DefaultLightTheme;
+const extern ColorTheme DefaultDarkTheme;
+const extern ColorTheme DefaultLightTheme;
 
 #endif

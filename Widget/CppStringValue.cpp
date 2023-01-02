@@ -8,5 +8,5 @@ CppStringValue::CppStringValue(int x, int y, std::string* stringptr) : Widget(x,
 }
 
 void CppStringValue::Draw() {
-    DrawText(m_stringptr->c_str(), m_x, m_y, 10, g_colortheme.TextColor);
+    DrawText(m_stringptr->c_str(), m_x, m_y, 10, g_colortheme->TextColor);
 }

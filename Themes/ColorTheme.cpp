@@ -1,7 +1,7 @@
 #include "ColorTheme.h"
 
 
-ColorTheme g_colortheme = DefaultLightTheme;
+ColorTheme* g_colortheme = (ColorTheme*) &DefaultDarkTheme;
 
 const ColorTheme DefaultDarkTheme = {
     .Background =       (Color) { 25,  25,  25, 255},

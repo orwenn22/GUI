@@ -12,6 +12,8 @@ WindowManager::~WindowManager() {
     }
     m_windows.clear();
     m_wincount = 0;
+
+    EmptyTrashcan();
 }
 
 void WindowManager::Update() {
@@ -38,7 +40,7 @@ void WindowManager::Add(Window* newwindow) {
 void WindowManager::Remove(Window* windowptr) {
     for(unsigned int i = 0; i < m_wincount; i++) {
         if(m_windows[i] == windowptr) {
-            delete m_windows[i];
+            m_trashcan.push_back(m_windows[i]);
             m_windows.erase(m_windows.begin() + i);
             m_wincount--;
             return;
@@ -46,12 +48,15 @@ void WindowManager::Remove(Window* windowptr) {
     }
 }
 
-//Previously : Window* WindowManager::Get( int index) {
 Window* WindowManager::Get(unsigned int index) {
-    if(index>=0 && index<m_wincount) {
+    if(index<m_wincount) {
         return m_windows[index];
     }
-    return NULL;
+    return nullptr;
+}
+
+unsigned int WindowManager::GetWindowCount() {
+    return m_wincount;
 }
 
 void WindowManager::BringOnTop(Window* windowptr) {
@@ -74,4 +79,9 @@ Window* WindowManager::FindWithID(int id) {
         }
     }
     return NULL;
+}
+
+void WindowManager::EmptyTrashcan() {
+    for(Window *w : m_trashcan) delete w;
+    m_trashcan.clear();
 }

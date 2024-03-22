@@ -24,13 +24,21 @@ class WindowManager {
     //Return NULL if there is no window corresponding to the index.
     Window* Get(unsigned int index);
 
+    unsigned int GetWindowCount();
+
     //Will put the windowptr at index 1 of m_windows
     void BringOnTop(Window* windowptr);
 
     Window* FindWithID(int id);
 
+private:
+    void EmptyTrashcan();
+
+
     std::vector<Window*> m_windows;     //contain the pointers to all the Windows in the WindowManager
     unsigned int m_wincount;            //number of windows in the WindowManager
+
+    std::vector<Window*> m_trashcan;    //When windows are closed, they goes here before getting deallocated
 };
 
 #endif
